@@ -1,10 +1,20 @@
 // Iteration 1: All directors? - Get the array of all directors.
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
 // How could you "clean" a bit this array and make it unified (without duplicates)?
-function getAllDirectors(moviesArray) {
-  return moviesArray.map(function(movie) {
+function getAllDirectors(moviesArray)  {
+  let directors = moviesArray.map(function(movie) {
     return movie.director;
   });
+
+  let uniqueDirectors = [];
+
+  for (let i = 0; i < directors.length; i++) {
+    if (!uniqueDirectors.includes(directors[i])) {
+      uniqueDirectors.push(directors[i]);
+    }
+  }
+
+  return uniqueDirectors;
 }
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
